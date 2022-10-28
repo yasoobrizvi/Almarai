@@ -1,0 +1,69 @@
+<div class="content-body">
+  <mat-card>
+    <mat-card-content>
+      <div class="header">
+        <h4>Edit fine</h4>
+      </div>
+      <form
+        (ngSubmit)="onSubmit(rowData)"
+        name="fineForm"
+        [ngModelGroup]="fineForm"
+      >
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Fine type</mat-label>
+            <mat-select placeholder="Fine" formControlName="type">
+              <mat-option *ngFor="let fine of fines" [value]="fine.value">
+                {{ fine.viewValue }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="!fineForm.controls['type'].valid">
+              Fine Type is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+            <input
+              class="upload"
+              formControlName="englishName"
+              matInput
+              placeholder="Name in English"
+              required
+            />
+            <mat-error *ngIf="!fineForm.controls['englishName'].valid">
+              English Name is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+            <input
+              class="upload"
+              formControlName="arabicName"
+              matInput
+              placeholder="Name in Arabic"
+              required
+            />
+            <mat-error *ngIf="!fineForm.controls['arabicName'].valid">
+              Arabic Name is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <mat-dialog-actions align="end"
+          ><button
+            cdkFocusInitial
+            class="upload"
+            mat-raised-button
+            color="primary"
+          >
+            Update
+          </button>
+          <button mat-dialog-close class="upload" mat-stroked-button>
+            Cancel
+          </button>
+        </mat-dialog-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

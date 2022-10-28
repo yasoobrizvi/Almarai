@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="button">
+    <button mat-raised-button (click)="addRow()">
+      Add Row
+    </button>
+    <!-- <button mat-raised-button (click)="removeSelected()">
+      Delete Selected
+    </button> -->
+  </div>
+  <ag-grid-angular
+    #agGrid
+    id="myGrid"
+    class="ag-theme-alpine"
+    editType="fullRow"
+    [modules]="modules"
+    [enableRangeSelection]="true"
+    (rowEditingStopped)="onRowEditingStopped($event)"
+    (rowEditingStarted)="onRowEditingStarted($event)"
+    (cellClicked)="onCellClicked($event)"
+    (cellValueChanged)="onCellValueChanged($event)"
+    [stopEditingWhenCellsLoseFocus]="false"
+    [suppressClickEdit]="true"
+    [rowData]="rowData"
+    [columnDefs]="colDefs"
+    [defaultColDef]="defaultColDef"
+    [animateRows]="true"
+    [rowHeight]="50"
+    (gridReady)="onGridReady($event)"
+  ></ag-grid-angular>
+</div>
+
+<!-- [gridOptions]="gridOptions"
+     [popupParent]="isPopup()"
+     rowSelection="multiple"
+     [stopEditingWhenCellsLoseFocus]="true"
+    (rowValueChanged)="onRowValueChanged($event)"
+-->
+
+
+<!-- gridApi.applyTransaction({ add: [{}] }) -->

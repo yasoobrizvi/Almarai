@@ -1,0 +1,53 @@
+<div class="content-body">
+  <mat-card>
+    <mat-card-content>
+      <div class="header">
+        <h4>Add new fine</h4>
+      </div>
+      <form (ngSubmit)="onSubmit()" name="fineForm" formControl="fineForm">
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Fine type</mat-label>
+            <mat-select placeholder="Fine" formControlName="type">
+              <mat-option *ngFor="let fine of fines" [value]="fine.value">
+                {{ fine.viewValue }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="!fineForm.controls['type'].valid">
+              Fine Type is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+            <input
+              class="upload"
+              formControlName="englishName"
+              matInput
+              placeholder="Name in English"
+              required
+            />
+            <mat-error *ngIf="!fineForm.controls['englishName'].valid">
+              English Name is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="full-width" appearance="fill">
+            <input
+              class="upload"
+              formControlName="arabicName"
+              matInput
+              placeholder="Name in Arabic"
+              required
+            />
+            <mat-error *ngIf="!fineForm.controls['arabicName'].valid">
+              Arabic Name is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <button class="upload" mat-flat-button color="primary">Submit</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

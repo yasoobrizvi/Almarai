@@ -1,0 +1,44 @@
+<div class="content-body">
+  <mat-card>
+    <mat-card-content>
+      <div class="header">
+        <h3>Fine</h3>
+      </div>
+      <div>
+        <p>Fine Type</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Choose Fine Type</mat-label>
+          <mat-select (selectionChange)="getValue($event)">
+            <mat-option *ngFor="let fine of fines" [value]="fine.value">
+              {{ fine.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field><br/>
+        <!-- <input
+          class="upload"
+          type="text"
+          placeholder="File Name"
+          (change)="getName(name.value)"
+          #name
+        /> -->
+        <p>Choose File</p>
+        <input
+          class="upload"
+          type="file"
+          (change)="getFile($event)"
+        />
+      </div>
+      <div>
+        <button
+          class="upload button btn btn-primary"
+          (click)="uploadFile()"
+        >
+          Submit
+        </button><br/>
+        <span style="color: red; margin-left: 23%;"
+        *ngIf="invalid"
+        >Fields cannot be empty</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
