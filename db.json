@@ -1,0 +1,73 @@
+{
+  "rowData": [
+    {
+      "id": 1,
+      "type": "Type-1",
+      "englishName": "Type-1",
+      "arabicName": "النوع 1"
+    },
+    {
+      "id": 2,
+      "type": "Type-2",
+      "englishName": "Type-2",
+      "arabicName": "النوع 2"
+    },
+    {
+      "id": 3,
+      "type": "Type-3",
+      "englishName": "Type-3",
+      "arabicName": "النوع 3"
+    },
+    {
+      "id": 4,
+      "type": "Type-4",
+      "englishName": "Type-4",
+      "arabicName": "النوع 4"
+    },
+    {
+      "id": 5,
+      "type": "Type-5",
+      "englishName": "Type-5",
+      "arabicName": "النوع 5"
+    },
+    {
+      "id": 6518735,
+      "type": "abc",
+      "englishName": "xyz",
+      "arabicName": "النوع 0"
+    },
+    {
+      "id": 2789076,
+      "type": "abc",
+      "englishName": "abc",
+      "arabicName": "النوع 0"
+    }
+  ],
+  "fine": [
+    {
+      "id": 1,
+      "value": "Type-1",
+      "fileName": "abc",
+      "file": []
+    },
+    {
+      "id": 912811744,
+      "value": "Type-2",
+      "fileName": "download.jpg",
+      "file": {}
+    },
+    {
+      "id": 308491247,
+      "value": "Type-4",
+      "fileName": "alm.png",
+      "file": {}
+    },
+    {
+      "id": 989858965,
+      "value": "Type-4",
+      "fileName": "alm.png",
+      "file": {}
+    }
+  ],
+  "profile": {}
+}
