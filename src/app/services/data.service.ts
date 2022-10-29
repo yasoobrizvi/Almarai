@@ -24,4 +24,7 @@ export class DataService {
 
     return this.http.post("http://localhost:3000/fine", fine);
   }
+  uploadForm(file: any) {
+    return this.http.post("http://localhost:3000/form", {name: file.name, file: file});
+  }
 }
