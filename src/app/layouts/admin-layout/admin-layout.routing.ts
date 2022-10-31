@@ -9,6 +9,7 @@ import { NotificationsComponent } from '../../pages/notifications/notifications.
 import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
 import { FineTypeComponent } from '../../pages/fine-type/fine-type.component';
 import { UploadComponent } from '../../pages/upload/upload.component';
+import { EmployeeDataComponent } from 'app/pages/employee-data/employee-data.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'finetype',      component: FineTypeComponent },
@@ -17,7 +18,8 @@ export const AdminLayoutRoutes: Routes = [
     // { path: 'user',           component: UserComponent },
     // { path: 'table',          component: TableComponent },
     // { path: 'typography',     component: TypographyComponent },
-    { path: 'upload-fine-data',           component: UploadFromDirectoryComponent },
+    { path: 'upload-staff-directory',           component: UploadFromDirectoryComponent },
+    { path: 'employee-data',           component: EmployeeDataComponent },
     // { path: 'notifications',  component: NotificationsComponent },
     // { path: 'upgrade',        component: UpgradeComponent }
 ];

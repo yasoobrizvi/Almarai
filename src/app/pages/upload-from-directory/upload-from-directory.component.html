@@ -1,4 +1,39 @@
-<div class="card text-center">
+<div class="uploader">
+  <!-- Upload  -->
+  <form id="file-upload-form">
+    <input
+      id="file-upload"
+      type="file"
+      name="fileUpload"
+      (change)="getFile($event)"
+      accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+    />
+    <label for="file-upload" id="file-drag">
+      <!-- <img id="file-image" src="#" alt="Preview" class="hidden" /> -->
+      <div id="start">
+        <i class="fa fa-download" aria-hidden="true"></i>
+        <p>Please select .XLSX/.XLS file</p>
+        <h6 *ngIf="fileName">{{ file.name }}</h6>
+        <!-- <div id="notimage" class="hidden">Please select a file</div> -->
+        <!-- <span id="file-upload-btn" class="btn btn-primary">Choose file</span> -->
+      </div>
+      <!-- <div id="response" class="hidden">
+      <div id="messages"></div>
+      <progress class="progress" id="file-progress" value="0">
+        <span>0</span>%
+      </progress>
+    </div> -->
+    </label>
+  </form>
+  <div class="card-footer text-muted">
+    <button class="upload button btn-primary" (click)="uploadFile()">
+      Submit</button
+    ><br />
+    <span style="color: red" *ngIf="invalid">Fields cannot be empty</span>
+  </div>
+</div>
+
+<!-- <div class="card text-center">
   <div class="card-header"><h5>Upload Fine Data</h5></div>
   <div class="card-body">
     <input class="upload" type="file" (change)="getFile($event)" />
@@ -11,4 +46,4 @@
       >Fields cannot be empty</span
     >
   </div>
-</div>
+</div> -->

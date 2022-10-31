@@ -11,7 +11,8 @@ export interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
     { path: '/finetype',     title: 'Manage Fine Types',         icon:'nc-bank',       class: '' },
     { path: '/upload',         title: 'Manage Fine Assignment',             icon:'nc-diamond',    class: '' },
-    { path: '/upload-fine-data',          title: 'Upload Fine Data',              icon:'nc-spaceship',      class: '' },
+    { path: '/upload-staff-directory',          title: 'Upload Staff Directory',              icon:'nc-spaceship',      class: '' },
+    { path: '/employee-data',          title: 'Employee Data',              icon:'nc-tile-56',      class: '' },
     // { path: '/dashboard',          title: 'Dashboard',              icon:'nc-bank',      class: '' },
     // { path: '/notifications', title: 'Notifications',     icon:'nc-bell-55',    class: '' },
     // { path: '/user',          title: 'User Profile',      icon:'nc-single-02',  class: '' },
