@@ -70,7 +70,9 @@ export class UploadFromDirectoryComponent implements OnInit {
         return false;
       }
     } else {
-      this.invalid = true;
+      alert(
+        "Field should not be empty."
+      );
     }
   }
 }

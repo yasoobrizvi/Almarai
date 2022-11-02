@@ -34,7 +34,8 @@ import { UploadComponent } from "./pages/upload/upload.component";
 import { HttpClientModule } from "@angular/common/http";
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome'
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { EmployeeDataComponent } from './pages/employee-data/employee-data.component';
+import { ManualFineAssignmentComponent } from './pages/manual-fine-assignment/manual-fine-assignment';
+import { UploadFromDirectoryComponent } from "./pages/upload-from-directory/upload-from-directory.component";
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { EmployeeDataComponent } from './pages/employee-data/employee-data.compo
     EditComponent,
     RowEditComponent,
     UploadComponent,
-    EmployeeDataComponent
+    ManualFineAssignmentComponent,
+    UploadFromDirectoryComponent
   ],
   imports: [
     BrowserAnimationsModule,

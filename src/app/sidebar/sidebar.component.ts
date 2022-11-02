@@ -15,6 +15,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/upload-staff-directory',          title: 'Upload Staff Directory',              icon:'nc-spaceship',      class: '' },
     { path: '/employee-data',          title: 'Employee Data',              icon:'nc-tile-56',      class: '' },
     { path: '/fine-assignment',          title: 'Validate Fine Assignment',              icon:'nc-spaceship',      class: '' },
+    { path: '/manual-fine-assignment',          title: 'Manual Fine Assignment',              icon:'nc-tile-56',      class: '' },
     // { path: '/dashboard',          title: 'Dashboard',              icon:'nc-bank',      class: '' },
     // { path: '/notifications', title: 'Notifications',     icon:'nc-bell-55',    class: '' },
     // { path: '/user',          title: 'User Profile',      icon:'nc-single-02',  class: '' },

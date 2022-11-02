@@ -12,12 +12,12 @@
       <!-- <img id="file-image" src="#" alt="Preview" class="hidden" /> -->
       <div id="start">
         <i class="fa fa-download" aria-hidden="true"></i>
-        <p>Please select .XLSX/.XLS file</p>
-        <h6 *ngIf="fileName">{{ file.name }}</h6>
+        <p>Please select .xlsx/.xls file</p>
+        <h6 class="file" *ngIf="fileName">{{ file.name }}</h6>
         <!-- <div id="notimage" class="hidden">Please select a file</div> -->
         <!-- <span id="file-upload-btn" class="btn btn-primary">Choose file</span> -->
       </div>
-      <!-- <div id="response" class="hidden">
+      <!-- <div id="response">
       <div id="messages"></div>
       <progress class="progress" id="file-progress" value="0">
         <span>0</span>%
@@ -28,8 +28,7 @@
   <div class="card-footer text-muted">
     <button class="upload button btn-primary" (click)="uploadFile()">
       Submit</button
-    ><br />
-    <span style="color: red" *ngIf="invalid">Fields cannot be empty</span>
+    >
   </div>
 </div>
 

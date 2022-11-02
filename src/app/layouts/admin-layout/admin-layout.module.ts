@@ -55,7 +55,6 @@ import { FineAssignmentComponent } from 'app/pages/fine-assignment/fine-assignme
     UpgradeComponent,
     TypographyComponent,
     IconsComponent,
-    UploadFromDirectoryComponent,
     NotificationsComponent,
     UploadFineDataComponent,
     FineAssignmentComponent
