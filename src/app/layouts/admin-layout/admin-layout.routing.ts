@@ -9,7 +9,6 @@ import { NotificationsComponent } from '../../pages/notifications/notifications.
 import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
 import { FineTypeComponent } from '../../pages/fine-type/fine-type.component';
 import { UploadComponent } from '../../pages/upload/upload.component';
-import { EmployeeDataComponent } from 'app/pages/employee-data/employee-data.component';
 import { UploadFineDataComponent } from "../../pages/upload-fine-data/upload-fine-data.component";
 import { FineAssignmentComponent } from 'app/pages/fine-assignment/fine-assignment.component';
 import { ManualFineAssignmentComponent } from 'app/pages/manual-fine-assignment/manual-fine-assignment';
@@ -22,10 +21,9 @@ export const AdminLayoutRoutes: Routes = [
     // { path: 'table',          component: TableComponent },
     // { path: 'typography',     component: TypographyComponent },
     { path: 'upload-staff-directory',           component: UploadFromDirectoryComponent },
-    { path: 'employee-data',           component: EmployeeDataComponent },
     { path: 'upload-fine-data',           component: UploadFineDataComponent },
-    { path: 'fine-assignment', component: FineAssignmentComponent}
-    { path: 'manual-fine-assignment',           component: ManualFineAssignmentComponent },
+    { path: 'fine-assignment', component: FineAssignmentComponent},
+    { path: 'manual-fine-assignment',           component: ManualFineAssignmentComponent }
     // { path: 'notifications',  component: NotificationsComponent },
     // { path: 'upgrade',        component: UpgradeComponent }
 ];
