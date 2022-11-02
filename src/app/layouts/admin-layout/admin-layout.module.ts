@@ -53,7 +53,6 @@ import { MatSelectModule } from "@angular/material/select";
     UpgradeComponent,
     TypographyComponent,
     IconsComponent,
-    UploadFromDirectoryComponent,
     NotificationsComponent,
   ],
 })
