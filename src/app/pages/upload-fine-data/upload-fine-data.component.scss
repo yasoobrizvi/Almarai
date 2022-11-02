@@ -1,0 +1,71 @@
+.card {
+  width: 550px;
+  padding: 25px;
+  // position: absolute;
+  // top: 30%;
+  // left: 25%;
+  background: whitesmoke;
+  margin: auto;
+}
+
+.upload {
+  text-align: center;
+}
+
+.mat-form-field{
+  padding: 10px !important;
+}
+
+.file-upload {
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // margin-top: -100px;
+  // margin-left: -250px;
+  // width: 431px;
+  height: 200px;
+  border: 4px dashed #bfb8b8;
+  border-radius: 4px;
+  margin: 24px auto;
+  color: #888484;
+}
+.file-upload p {
+  width: 100%;
+  height: 100%;
+  // text-align: center;
+  // line-height: 170px;
+  // color: #ffffff;
+  // font-family: Arial;
+  font-size: larger;
+  font-weight: bold;
+}
+.file-upload input {
+  // position: absolute;
+  // margin: 0;
+  // padding: 0;
+  // width: 500px;
+  // height: 200px;
+  // outline: none;
+  // opacity: 0;
+  display: none;
+}
+i.fa {
+  font-size: 50px;
+  margin-top: 14px;
+  margin-bottom: 16px;
+  // margin: 10px 0 1rem 38%;
+  // transition: all 0.2s ease-in-out;
+  // position: relative;
+  // top: 10px;
+  // left: 440%;
+}
+#file-drag {
+  // margin: 0 0 0.5rem 25%;
+  margin-top: 30px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+.submitbtn{
+  width: 115px;
+}

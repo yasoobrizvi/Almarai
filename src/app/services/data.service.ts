@@ -9,6 +9,9 @@ export class DataService {
   rowData() {
     return this.http.get("http://localhost:3000/rowData");
   }
+  getFineData(){
+    return this.http.get("http://localhost:3000/fineRowData");
+  }
   saveRowData(data: any) {
     console.log(data);
 

@@ -2,14 +2,48 @@
 @import '~bootstrap/scss/bootstrap';
 @import 'ag-grid-community/styles/ag-grid.css';
 @import 'ag-grid-community/styles/ag-theme-alpine.css';
+//----------------------------------*\
+// Fonts
+//----------------------------------*/
+@import 'assets/scss/modules/_fonts.scss';
+// primary font
+$primary_font: 'Almarai';
+// font-weight
+$thin:100;
+$light:300;
+$regular:400;
+$bold:700;
+$black:900;
+// Font size
+$font-xs:12px;
+$font-sm: 14px;
+$primary-fs: 16px;
+$font-md: 18px;
+$font-lg: 20px;
+
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0; 
+    font-family: $primary_font;
+    font-size: $primary-fs;
+    font-weight: $regular;
+}
 .main-panel {
     background-color: #fff;
 }
 
 .main-panel .content {
-    height: 650px;
+    // height: 650px;
     background-color: rgba(255, 255, 255, 0.901);
 }
+
+.massign-grey{
+    background-color: lightgrey;
+  }
+  .aassign-amber{
+    background-color: lightsalmon;
+  }
+  .unassign-blue{
+    background-color: lightblue;
+  }

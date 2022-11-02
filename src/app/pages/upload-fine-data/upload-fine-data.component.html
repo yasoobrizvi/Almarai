@@ -1,0 +1,83 @@
+<!-- <div class="card text-center"> -->
+  <!-- <div class="card-header"> -->
+    <!-- <h5>Upload Fine Data</h5> -->
+  <!-- </div> -->
+  <div>
+      <!-- <p>Fine Type</p> -->
+      <!-- <mat-form-field appearance="fill"> -->
+        <!-- <label>Choose Fine Type</label>
+        <select (selectionChange)="getValue($event)">
+          <option value ="Saher" >Saher</option>
+          <option value ="Non-saher">Non-saher</option>
+        </select> -->
+        <div class="row justify-content-center">
+          <div class="form-group col-4">
+            <label for="fineTypeSelect">Fine Type</label>
+            <select class="form-control" id="fineTypeSelect">
+                <option value ="Saher" >Saher</option>
+                <option value ="Non-saher">Non-saher</option>
+            </select>
+          </div>
+          <div class="form-group col-4">
+            <label for="countrySelect">Country</label>
+            <select class="form-control" id="countrySelect">
+              <option *ngFor="let country of countries" [value]="country.id">
+                  {{country.name}}</option>
+            </select>
+          </div> 
+        </div>
+      <!-- </mat-form-field> -->
+
+      <!-- <p>Country</p> -->
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Choose Country</mat-label>
+        <mat-select (selectionChange)="getValue($event)">
+          <mat-option *ngFor="let country of countries" [value]="country.id">
+            {{country.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+      <!-- <select class="custom-select" id="inputGroupSelect01">
+          <option selected>Choose...</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select> -->
+    <!-- <input class="upload" type="file" (change)="getFile($event)" /> -->
+    <div class="row justify-content-center">
+    <div class="col-5 file-upload">
+      <input
+        id="file-upload"
+        type="file"
+        name="fileUpload"
+        (change)="getFile($event)"
+        accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+      />
+      <label for="file-upload" id="file-drag">
+        <!-- <img id="file-image" src="#" alt="Preview" class="hidden" /> -->
+        <div id="start">
+          <i class="fa fa-download" aria-hidden="true"></i>
+          <p>Please select .xlsx/.xls file</p>
+          <!-- <h6 *ngIf="fileName">{{ file.name }}</h6> -->
+          <!-- <div id="notimage" class="hidden">Please select a file</div> -->
+          <!-- <span id="file-upload-btn" class="btn btn-primary">Choose file</span> -->
+        </div>
+        <!-- <div id="response" class="hidden">
+        <div id="messages"></div>
+        <progress class="progress" id="file-progress" value="0">
+          <span>0</span>%
+        </progress>
+      </div> -->
+      </label>
+    </div>
+    </div>
+  </div>
+  <div class="upload">
+    <button class="button btn btn-primary submitbtn" (click)="uploadFile()">
+      Submit</button
+    ><br />
+    <span style="color: red" *ngIf="invalid"
+      >Fields cannot be empty</span
+    >
+  </div>
+<!-- </div> -->

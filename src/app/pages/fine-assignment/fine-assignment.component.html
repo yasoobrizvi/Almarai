@@ -1,0 +1,43 @@
+<div class="container">
+  <!-- <div class="button">
+    <button mat-raised-button (click)="addRow()">
+      Add Row
+    </button> -->
+    <!-- <button mat-raised-button (click)="removeSelected()">
+      Delete Selected
+    </button> -->
+  <!-- </div> -->
+  <ag-grid-angular
+    #agGrid
+    id="myGrid"
+    class="ag-theme-alpine"
+    [modules]="modules"
+    rowSelection = 'multiple'
+    rowMultiSelectWithClick = "true"
+    [suppressRowClickSelection]="true"
+    (rowSelected)="onRowSelected($event)"
+    [stopEditingWhenCellsLoseFocus]="false"
+    [rowData]="rowData"
+    [columnDefs]="colDefs"
+    [defaultColDef]="defaultColDef"
+    [animateRows]="true"
+    [rowHeight]="42"
+    [pagination]="true"
+    [paginationPageSize]="10"
+    (gridReady)="onGridReady($event)"
+  ></ag-grid-angular>
+</div>
+
+
+<button class="save button btn btn-primary" (click)="saveChanges()">
+    Save</button>
+
+<!-- [gridOptions]="gridOptions"
+     [popupParent]="isPopup()"
+     rowSelection="multiple"
+     [stopEditingWhenCellsLoseFocus]="true"
+    (rowValueChanged)="onRowValueChanged($event)"
+-->
+
+
+<!-- gridApi.applyTransaction({ add: [{}] }) -->

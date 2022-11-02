@@ -11,6 +11,7 @@ import { TableComponent } from "../../pages/table/table.component";
 import { TypographyComponent } from "../../pages/typography/typography.component";
 import { IconsComponent } from "../../pages/icons/icons.component";
 import { UploadFromDirectoryComponent } from "../../pages/upload-from-directory/upload-from-directory.component";
+import { UploadFineDataComponent } from "../../pages/upload-fine-data/upload-fine-data.component";
 import { NotificationsComponent } from "../../pages/notifications/notifications.component";
 import { UpgradeComponent } from "../../pages/upgrade/upgrade.component";
 
@@ -26,6 +27,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatSelectModule } from "@angular/material/select";
+import { FineAssignmentComponent } from 'app/pages/fine-assignment/fine-assignment.component';
 
 @NgModule({
   imports: [
@@ -55,6 +57,8 @@ import { MatSelectModule } from "@angular/material/select";
     IconsComponent,
     UploadFromDirectoryComponent,
     NotificationsComponent,
+    UploadFineDataComponent,
+    FineAssignmentComponent
   ],
 })
 export class AdminLayoutModule {}
