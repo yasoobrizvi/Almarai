@@ -17,12 +17,16 @@ interface ViolationType {
   styleUrls: ["./manual-fine-assignment.scss"],
 })
 export class ManualFineAssignmentComponent implements OnInit {
-  plateNumber: string;
-  selectedEmployee: string;
-  selectedViolationType: string;
-  amount: number;
+  // plateNumber: string;
+  // date: string;
+  // selectedEmployee: string;
+  // selectedViolationType: string;
+  // amount: string;
+  manualForm : FormGroup;
+  submitted = false;
 
   employees: Employees[] = [
+    { value: "", name: "Select Employee" },
     { value: "one", name: "One" },
     { value: "two", name: "Two" },
     { value: "three", name: "Three" },
@@ -31,6 +35,7 @@ export class ManualFineAssignmentComponent implements OnInit {
   ];
 
   violation: ViolationType[] = [
+    { value: "", name: "Choose Violation Type" },
     { value: "one", name: "Type-1" },
     { value: "two", name: "Type-2" },
     { value: "three", name: "Type-3" },
@@ -40,24 +45,25 @@ export class ManualFineAssignmentComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {}
 
-  ngOnInit(): void {}
-
-  manualFineForm: FormGroup = this.formBuilder.group({
-    plateNumber: [""],
-    employee: [""],
-    violationType: [""],
-    amount: [""],
-  });
-
-  getEmployeeData() {
-    console.log(this.selectedEmployee);
+  ngOnInit() {
+    this.manualForm = this.formBuilder.group({
+      plateNumber: ["", Validators.required],
+      date: ["", Validators.required],
+      employee: ["", Validators.required],
+      violationType: ["", Validators.required],
+      amount: ["", Validators.required],
+    });
   }
 
-  getViolationData() {
-    console.log(this.selectedViolationType);
-  }
+  getEmployeeData() {}
+
+  getViolationData() {}
 
   onSubmit() {
-    console.log(this.plateNumber);
+    this.submitted = true;
+
+    if(this.manualForm.invalid) {
+      return;
+    }
   }
 }
