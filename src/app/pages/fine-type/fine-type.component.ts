@@ -1,87 +1,23 @@
 import { Component, OnInit } from "@angular/core";
-import { CellValueChangedEvent, ColDef, GridReadyEvent, RowNodeTransaction, RowValueChangedEvent } from "ag-grid-community";
+import {
+  CellValueChangedEvent,
+  CheckboxSelectionCallbackParams,
+  ColDef,
+  GridReadyEvent,
+  HeaderCheckboxSelectionCallbackParams,
+  RowNodeTransaction,
+  RowValueChangedEvent,
+} from "ag-grid-community";
 import { Module } from "@ag-grid-community/core";
 import { ClientSideRowModelModule } from "@ag-grid-community/client-side-row-model";
 import { RangeSelectionModule } from "@ag-grid-enterprise/range-selection";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { DataService } from "app/services/data.service";
+import { RowEditComponent } from "./row-edit/row-edit.component";
 
 // export interface rowData {
 //   rowData: any;
 // }
-
-function actionCellRenderer(params: any) {
-  let eGui = document.createElement("div");
-
-  let editingCells = params.api.getEditingCells();
-  // checks if the rowIndex matches in at least one of the editing cells
-  let isCurrentRowEditing = editingCells.some((cell: { rowIndex: any }) => {
-    return cell.rowIndex === params.node.rowIndex;
-  });
-
-  if (isCurrentRowEditing) {
-    eGui.innerHTML = `
-    <button
-    mat-raised-button
-    style="  border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    opacity: 0.7;
-    border-radius: 5px;
-    margin-top: 2px;
-    background-color: #4caf50; /* Green */"
-    data-action="save"> Save  </button>
-
-    <button
-    mat-raised-button
-    style="  border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    opacity: 0.7;
-    border-radius: 5px;
-    margin-top: 2px;
-    background-color: #e7e7e7; /* Gray */
-    color: black;"
-    data-action="cancel" > Cancel </button>`;
-  } else {
-    eGui.innerHTML = `
-    <button
-    mat-raised-button
-    style="  border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    opacity: 0.7;
-    border-radius: 5px;
-    margin-top: 2px;
-    background-color: #008cba; /* Blue */"
-    data-action="edit" > Edit </button>
-
-    <button
-    mat-raised-button
-    style="  border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    opacity: 0.7;
-    border-radius: 5px;
-    margin-top: 2px;
-    background-color: #f44336; /* Red */"
-    data-action="delete" > Delete </button>`;
-  }
-
-  return eGui;
-}
 
 @Component({
   selector: "app-fine-type",
@@ -91,24 +27,38 @@ function actionCellRenderer(params: any) {
 export class FineTypeComponent implements OnInit {
   // gridOptions: any;
   public modules: Module[] = [ClientSideRowModelModule, RangeSelectionModule];
+  rowSelection: "single" | "multiple" = "multiple";
 
   faEdit = faEdit;
   faTrash = faTrash;
 
-  rowData: any;
-  // any[]
-  //  = [
-  //   { type: "Type-1", englishName: "Type-1", arabicName: "النوع 1" },
-  //   { type: "Type-2", englishName: "Type-2", arabicName: "النوع 2" },
-  //   { type: "Type-3", englishName: "Type-3", arabicName: "النوع 3" },
-  //   { type: "Type-4", englishName: "Type-4", arabicName: "النوع 4" },
-  //   { type: "Type-5", englishName: "Type-5", arabicName: "النوع 5" },
-  // ];
+  rowData: any[] = [
+    { type: "Type-1", englishName: "Type-1", arabicName: "النوع 1" },
+    { type: "Type-2", englishName: "Type-2", arabicName: "النوع 2" },
+    { type: "Type-3", englishName: "Type-3", arabicName: "النوع 3" },
+    { type: "Type-4", englishName: "Type-4", arabicName: "النوع 4" },
+    { type: "Type-5", englishName: "Type-5", arabicName: "النوع 5" },
+  ];
   colDefs: ColDef[] = [
-    { headerName: "Fine Type", field: "type", checkboxSelection: true },
-    { headerName: "Name(English)", field: "englishName" },
-    { headerName: "Name(Arabic)", field: "arabicName" },
-    { field: "Action", cellRenderer: actionCellRenderer, editable: false },
+    {
+      headerName: "",
+      editable: false,
+      filter: false,
+      sortable: false,
+      width: 10,
+      headerCheckboxSelection: isFirstColumn,
+      checkboxSelection: isFirstColumn,
+    },
+    { headerName: "Fine Type", field: "type" },
+    { headerName: "Name (English)", field: "englishName" },
+    { headerName: "Name (Arabic)", field: "arabicName" },
+    {
+      field: "Action",
+      cellRenderer: RowEditComponent,
+      editable: false,
+      filter: false,
+      sortable: false,
+    },
   ];
   defaultColDef: ColDef = {
     sortable: true,
@@ -120,7 +70,7 @@ export class FineTypeComponent implements OnInit {
   gridColumnApi: any;
 
   constructor(private gridData: DataService) {
-    gridData.rowData().subscribe((data) => (this.rowData = data));
+    // gridData.rowData().subscribe((data) => (this.rowData = data));
     // this.gridOptions = {
     //   context: {
     //     componentParent: this,
@@ -177,7 +127,6 @@ export class FineTypeComponent implements OnInit {
   onCellClicked(params: any) {
     console.log("params", params);
     console.log("RowData", this.rowData);
-    
 
     // Handle click event for action cells
     if (
@@ -229,7 +178,7 @@ export class FineTypeComponent implements OnInit {
     console.log("event", event);
 
     console.log(
-      'onCellValueChanged: ' + event.colDef.field + ' = ' + event.newValue
+      "onCellValueChanged: " + event.colDef.field + " = " + event.newValue
     );
   }
 
@@ -307,4 +256,87 @@ export class FineTypeComponent implements OnInit {
   //     {make: 'Ford', model: 'Mondeo', price: 32000},
   //     {make: 'Porsche', model: 'Boxter', price: 72000}
   // ];
+}
+
+function actionCellRenderer(params: any) {
+  let eGui = document.createElement("div");
+
+  let editingCells = params.api.getEditingCells();
+  // checks if the rowIndex matches in at least one of the editing cells
+  let isCurrentRowEditing = editingCells.some((cell: { rowIndex: any }) => {
+    return cell.rowIndex === params.node.rowIndex;
+  });
+
+  if (isCurrentRowEditing) {
+    eGui.innerHTML = `
+    <button
+    mat-raised-button
+    style="  border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    opacity: 0.7;
+    border-radius: 5px;
+    margin-top: 2px;
+    background-color: #4caf50; /* Green */"
+    data-action="save"> Save  </button>
+
+    <button
+    mat-raised-button
+    style="  border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    opacity: 0.7;
+    border-radius: 5px;
+    margin-top: 2px;
+    background-color: #e7e7e7; /* Gray */
+    color: black;"
+    data-action="cancel" > Cancel </button>`;
+  } else {
+    eGui.innerHTML = `
+    <button
+    mat-raised-button
+    style="  border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    opacity: 0.7;
+    border-radius: 5px;
+    margin-top: 2px;
+    background-color: #008cba; /* Blue */"
+    data-action="edit" > Edit </button>
+
+    <button
+    mat-raised-button
+    style="  border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    opacity: 0.7;
+    border-radius: 5px;
+    margin-top: 2px;
+    background-color: #f44336; /* Red */"
+    data-action="delete" > Delete </button>`;
+  }
+
+  return eGui;
+}
+
+function isFirstColumn(
+  params:
+    | CheckboxSelectionCallbackParams
+    | HeaderCheckboxSelectionCallbackParams
+) {
+  var displayedColumns = params.columnApi.getAllDisplayedColumns();
+  var thisIsFirstColumn = displayedColumns[0] === params.column;
+  return thisIsFirstColumn;
 }

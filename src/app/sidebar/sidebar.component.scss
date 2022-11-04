@@ -1,0 +1,24 @@
+.sidebar-wrapper .nav li a {
+  margin: 10px 0px 0px;
+  color: #152b80;
+  opacity: 1;
+}
+
+.nav p {
+  font-size: 14px;
+}
+
+.sidebar-wrapper .nav li a i {
+  color: #152b80;
+  opacity: 1;
+}
+
+.sidebar-wrapper .nav li.active > a {
+  color: #ef8157;
+  opacity: 1;
+}
+
+.sidebar-wrapper .nav li.active > a i {
+  color: #ef8157;
+  opacity: 1;
+}

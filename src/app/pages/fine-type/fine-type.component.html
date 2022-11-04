@@ -1,7 +1,7 @@
 <div class="container">
   <div class="button">
-    <button mat-raised-button (click)="addRow()">
-      Add Row
+    <button class="btn btn-primary" (click)="addRow()">
+      <i class="fa-plus"> Add Fine</i>
     </button>
     <!-- <button mat-raised-button (click)="removeSelected()">
       Delete Selected
@@ -10,7 +10,7 @@
   <ag-grid-angular
     #agGrid
     id="myGrid"
-    class="ag-theme-alpine"
+    class="ag-theme-alpine ag-header-container"
     editType="fullRow"
     [modules]="modules"
     [enableRangeSelection]="true"
@@ -20,7 +20,9 @@
     (cellValueChanged)="onCellValueChanged($event)"
     [stopEditingWhenCellsLoseFocus]="false"
     [suppressClickEdit]="true"
+    [suppressRowClickSelection]="true"
     [rowData]="rowData"
+    [rowSelection]="rowSelection"
     [columnDefs]="colDefs"
     [defaultColDef]="defaultColDef"
     [animateRows]="true"
@@ -35,6 +37,5 @@
      [stopEditingWhenCellsLoseFocus]="true"
     (rowValueChanged)="onRowValueChanged($event)"
 -->
-
 
 <!-- gridApi.applyTransaction({ add: [{}] }) -->

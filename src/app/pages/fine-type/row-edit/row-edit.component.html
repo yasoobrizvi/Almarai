@@ -1,2 +1,2 @@
-<button class="rowButton" mat-raised-button color="accent" (click)="editRow(rowData)">{{ edit }}</button>
-<button class="rowButton" mat-raised-button color="warn" (click)="deleteRow(rowData.rowIndex)">{{ save }}</button>
+<button class="edit btn btn-primary" (click)="editRow(rowData)"><i class="fa-solid fa-pen-to-square"></i></button>
+<button class="delete btn btn-danger" (click)="deleteRow(rowData.rowIndex)"><i class="fa-solid fa-trash-can"></i></button>
